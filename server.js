@@ -5,12 +5,16 @@ const bodyParser = require('body-parser');
 const ejs = require('ejs');
 const path = require('path');
 
+// importing routes
+const login = require('./api/routes/login');
+const signup = require('./api/routes/signup');
+
 // Ports
 const db_port = '27017'; // change dbport if required. This is the default port for mongodb
 const port = process.env.port || 3000; // if the application has an environment port use that or use port 3000 for I/O
 
 // Database constants
-const db_name = 'testdb'; // 'testdb' for testing mongodb connectivity
+const db_name = 'library'; // 'library' official DataBase for this project
 const db_string = 'mongodb://localhost:' + db_port + '/' + db_name; // connection string
 const db_options = {useNewUrlParser: true, useUnifiedTopology: true}; // DB options to be added
 
@@ -34,6 +38,10 @@ db.once('open', function(){
 // Setup express app for the server to run!
 const app = express();
 app.use(bodyParser.json()); // used for parsing json data
+
+// routes server call
+app.use('/', login);
+app.use('/', signup);
 
 
 // ***** TEST *****
