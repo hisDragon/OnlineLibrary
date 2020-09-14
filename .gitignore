@@ -1,2 +1,6 @@
 # dependencies and node files
 node_modules/
+
+# ignoring react's node_modules
+front_react/node_modules/
+
