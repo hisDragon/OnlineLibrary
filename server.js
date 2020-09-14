@@ -11,7 +11,9 @@ const signup = require('./api/routes/signup');
 
 // Ports
 const db_port = '27017'; // change dbport if required. This is the default port for mongodb
-const port = process.env.port || 3000; // if the application has an environment port use that or use port 3000 for I/O
+const port = process.env.port || 4000; // if the application has an environment port use that or use port 3000 for I/O
+
+// changing port to 4000 because react uses port 3000 on default -- to avoid conflict :)
 
 // Database constants
 const db_name = 'library'; // 'library' official DataBase for this project
